@@ -34,4 +34,16 @@ class AlbumTest {
         });
     }
 
+    @Test
+    void shouldAddPhotosToAlbum() {
+        final double height = 6;
+        final double width = 9;
+        final Album sut = new Album(height, width);
+        final Photo photo1 = mock();
+        final Photo photo2 = mock();
+
+        assertDoesNotThrow(() -> sut.addPhotos(photo1, photo2));
+        assertTrue(sut.containsPhotos(photos));
+    }
+
 }
