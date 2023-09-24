@@ -6,9 +6,9 @@ public class Photo {
     private double width;
 
     public Photo(double height, double width) {
-
-    this.height = height;
-    this.width = width;
+        validate(height, width);
+        this.height = height;
+        this.width = width;
     }
 
     public double getHeight() {
@@ -17,5 +17,9 @@ public class Photo {
 
     public double getWidth() {
         return width;
+    }
+
+    private void validate(double height, double width) {
+        if (height <= 0 || width <= 0) throw new IllegalArgumentException();
     }
 }
