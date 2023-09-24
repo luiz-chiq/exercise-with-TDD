@@ -2,9 +2,20 @@ package Exercise7;
 
 public class Photo {
 
-    private double heigth;
+    private double height;
     private double width;
 
-    public Photo() {
+    public Photo(double height, double width) {
+
+    this.height = height;
+    this.width = width;
+    }
+
+    public double getHeight() {
+        return height;
+    }
+
+    public double getWidth() {
+        return width;
     }
 }
