@@ -35,6 +35,14 @@ class AlbumTest {
     }
 
     @Test
+    void shouldNotContainsPhotos() {
+        final double height = 6;
+        final double width = 9;
+        final Album sut = new Album(height, width);
+        assertFalse(sut.containsPhotos());
+    }
+
+    @Test
     void shouldAddPhotosToAlbum() {
         final double height = 6;
         final double width = 9;
@@ -45,5 +53,6 @@ class AlbumTest {
         assertDoesNotThrow(() -> sut.addPhotos(photo1, photo2));
         assertTrue(sut.containsPhotos());
     }
+
 
 }
