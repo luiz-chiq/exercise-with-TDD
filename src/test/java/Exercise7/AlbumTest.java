@@ -17,4 +17,21 @@ class AlbumTest {
         assertEquals(width, sut.getWidth());
     }
 
+    @Test
+    void shouldThrowExceptionForNegativeAlbumSize() {
+        final double height = -6;
+        final double width = -6;
+        assertThrows(IllegalArgumentException.class, () -> {
+            final Album sut = new Album(height, width);
+        });
+    }
+    @Test
+    void shouldThrowExceptionForInfinityAlbumSize() {
+        final double height = Double.POSITIVE_INFINITY;
+        final double width = 8;
+        assertThrows(IllegalArgumentException.class, () -> {
+            final Album sut = new Album(height, width);
+        });
+    }
+
 }
