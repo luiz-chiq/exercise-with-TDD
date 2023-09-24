@@ -33,6 +33,14 @@ class PhotoTest {
             final Photo sut = new Photo(height, width);
         });
     }
+    @Test
+    void shouldThrowExceptionForInfinityPhotoSize() {
+        final double height = Double.POSITIVE_INFINITY;
+        final double width = 12;
+        assertThrows(IllegalArgumentException.class, () -> {
+            final Photo sut = new Photo(height, width);
+        });
+    }
 
 
 }
