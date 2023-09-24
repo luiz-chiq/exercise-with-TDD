@@ -43,7 +43,7 @@ class AlbumTest {
         final Photo photo2 = mock();
 
         assertDoesNotThrow(() -> sut.addPhotos(photo1, photo2));
-        assertTrue(sut.containsPhotos(photos));
+        assertTrue(sut.containsPhotos());
     }
 
 }
