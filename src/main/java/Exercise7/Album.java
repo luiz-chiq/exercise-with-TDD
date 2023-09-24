@@ -16,6 +16,16 @@ public class Album {
         this.width = width;
     }
 
+    public void addPhotos(Photo photo1, Photo photo2){
+        if (photo1 == null || photo2 == null) throw new IllegalArgumentException();
+        this.photo1 = photo1;
+        this.photo2 = photo2;
+    }
+
+    public boolean containsPhotos() {
+        return photo1 != null && photo2 != null;
+    }
+
     private void validate(double height, double width){
         if (height <= 0 || width <= 0) throw new IllegalArgumentException();
         if (height == Double.POSITIVE_INFINITY || width == Double.POSITIVE_INFINITY) throw new IllegalArgumentException();
