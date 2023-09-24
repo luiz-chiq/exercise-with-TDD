@@ -21,5 +21,6 @@ public class Photo {
 
     private void validate(double height, double width) {
         if (height <= 0 || width <= 0) throw new IllegalArgumentException();
+        if (height == Double.POSITIVE_INFINITY || width == Double.POSITIVE_INFINITY) throw new IllegalArgumentException();
     }
 }
