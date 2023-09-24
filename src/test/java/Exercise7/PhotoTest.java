@@ -9,27 +9,29 @@ class PhotoTest {
 
     @Test
     void shouldCreateValidPhotoSize() {
-        final double heigth = 3.5;
+        final double height = 3.5;
         final double width = 5;
-        final Photo sut = new Photo(heigth, width);
-        assertEquals(heigth, sut.getHeigth());
+        final Photo sut = new Photo(height, width);
+        assertEquals(height, sut.getHeight());
         assertEquals(width, sut.getWidth());
     }
 
     @Test
-    void shouldThrowExceptionForInvalidPhotoSize1() {
-        final double heigth = 0;
+    void shouldThrowExceptionForInvalidPhotoSize() {
+        final double height = 0;
         final double width = 5;
-        final Photo sut = new Photo(heigth, width);
-        assertThrows(IllegalArgumentException.class, IllegalArgumentException::new);
+        assertThrows(IllegalArgumentException.class, () -> {
+            final Photo sut = new Photo(height, width);
+        });
     }
 
     @Test
-    void shouldThrowExceptionForInvalidPhotoSize2() {
-        final double heigth = -2;
+    void shouldThrowExceptionForNegativePhotoSize() {
+        final double height = -2;
         final double width = -3.6;
-        final Photo sut = new Photo(heigth, width);
-        assertThrows(IllegalArgumentException.class, IllegalArgumentException::new);
+        assertThrows(IllegalArgumentException.class, () -> {
+            final Photo sut = new Photo(height, width);
+        });
     }
 
 
