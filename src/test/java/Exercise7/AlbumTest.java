@@ -106,7 +106,24 @@ class AlbumTest {
     }
 
     @Test
-    void photosShouldRotateToFitOnAlbum() {
+    void photosShouldRotateFirstPhotoToFitOnAlbum() {
+        final double height = 9;
+        final double width = 6;
+        final double photo1Height = 6;
+        final double photo1width = 4;
+        final double photo2Height = 4;
+        final double photo2width = 6;
+
+        final Album sut = new Album(height, width);
+        final Photo photo1 = new Photo(photo1Height, photo1width);
+        final Photo photo2 = new Photo(photo2Height, photo2width);
+        sut.addPhotos(photo1, photo2);
+
+        assertTrue(sut.fitPhotos());
+    }
+
+    @Test
+    void photosShouldRotateSecondPhotoToFitOnAlbum() {
         final double height = 9;
         final double width = 6;
         final double photo1Height = 4;
@@ -121,6 +138,7 @@ class AlbumTest {
 
         assertTrue(sut.fitPhotos());
     }
+
 
 
 }
