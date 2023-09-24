@@ -72,7 +72,7 @@ class AlbumTest {
     }
 
     @Test
-    void photosShouldFitSIdeToSideOnAlbum() {
+    void photosShouldFitSideToSideOnAlbum() {
         final double height = 6;
         final double width = 9;
         final double photo1Height = 4;
@@ -105,6 +105,22 @@ class AlbumTest {
         assertFalse(sut.fitPhotos());
     }
 
+    @Test
+    void photosShouldRotateToFitOnAlbum() {
+        final double height = 9;
+        final double width = 6;
+        final double photo1Height = 4;
+        final double photo1width = 6;
+        final double photo2Height = 6;
+        final double photo2width = 4;
+
+        final Album sut = new Album(height, width);
+        final Photo photo1 = new Photo(photo1Height, photo1width);
+        final Photo photo2 = new Photo(photo2Height, photo2width);
+        sut.addPhotos(photo1, photo2);
+
+        assertTrue(sut.fitPhotos());
+    }
 
 
 }
